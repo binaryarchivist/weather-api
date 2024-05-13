@@ -43,18 +43,4 @@ export class WeatherService {
 
     return { data, nextCursor };
   }
-
-  async findOne(id: string): Promise<Weather> {
-    return this.weatherModel.findById(id).exec();
-  }
-
-  async update(id: string, updateWeatherDto: any): Promise<Weather> {
-    return this.weatherModel
-      .findByIdAndUpdate(id, updateWeatherDto, { new: true })
-      .exec();
-  }
-
-  async remove(id: string): Promise<void> {
-    await this.weatherModel.findByIdAndDelete(id).exec();
-  }
 }
