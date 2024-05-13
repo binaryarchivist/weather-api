@@ -14,8 +14,8 @@ import { GetWeatherDto } from './dto/get-weather.dto';
 export class WeatherController {
   constructor(private readonly weatherService: WeatherService) {}
 
-  @Permissions('WRITE')
   @Post()
+  @Permissions(['WRITE'])
   @ApiOperation({ summary: 'Create weather data' })
   @ApiResponse({ status: 201, description: 'The weather data has been successfully created.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })
@@ -23,8 +23,8 @@ export class WeatherController {
     return this.weatherService.create(createWeatherDto);
   }
 
-  @Permissions('READ')
   @Get()
+  @Permissions(['READ', 'WRITE'])
   @ApiOperation({ summary: 'Get all weather data' })
   @ApiResponse({ status: 200, description: 'Weather data retrieved successfully.' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })

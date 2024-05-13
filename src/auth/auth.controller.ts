@@ -19,7 +19,7 @@ export class AuthController {
     examples: {
       a: {
         summary: 'Standard request',
-        value: { username: 'user123', permissions: ['read', 'write'], role: 'admin' },
+        value: { username: 'user123', permissions: ['READ', 'WRITE']},
       },
     },
   })
