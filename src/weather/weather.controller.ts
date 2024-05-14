@@ -31,8 +31,8 @@ export class WeatherController {
   @ApiQuery({ name: 'cursor', required: false, type: String, description: 'Cursor for pagination' })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Limit for pagination' })
   findAll(
+    @Query('limit') limit: number = 5,
     @Query('cursor') cursor?: string,
-    @Query('limit') limit = 5,
   ): Promise<GetWeatherDto> {
     return this.weatherService.findAll({ cursor, limit });
   }

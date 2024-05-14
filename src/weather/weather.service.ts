@@ -32,7 +32,7 @@ export class WeatherService {
 
     const data = await this.weatherModel
       .find(query)
-      .limit(limit + 1)
+      .limit(Number(limit) + 1)
       .exec();
 
     let nextCursor: string | undefined;
